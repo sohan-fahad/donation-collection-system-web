@@ -91,8 +91,9 @@ pnpm start
 
 ## Pages and Routes
 
-- `/` - Auth page
-- `/home` - Home page
+- `/` - Donation page
+- `/auth` - Auth page
+- `/dashboard` - Home page
 
 ## API Integration
 
