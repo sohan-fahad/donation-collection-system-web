@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import updateLocale from 'dayjs/plugin/updateLocale';
+import { IUserRole } from "../types/interfaces";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -50,5 +51,18 @@ export class UtilsService {
 
     public static removeToken = () => {
         localStorage.removeItem('auth_token');
+    }
+
+    static setRole(role: string) {
+        localStorage.setItem('userRole', role);
+    }
+
+    static getRole() {
+        const role = localStorage.getItem('userRole');
+        return role as IUserRole["role"];
+    }
+
+    static removeRole() {
+        localStorage.removeItem('userRole');
     }
 }

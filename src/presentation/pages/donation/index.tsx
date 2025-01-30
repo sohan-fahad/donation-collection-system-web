@@ -38,14 +38,17 @@ import { useForm } from "react-hook-form";
 import PaymentSuccessfull from "./PaymentSuccessfull";
 import { useToast } from "@/presentation/hooks/use-toast";
 import Text from "@/presentation/components/ui/text";
-import { UtilsService } from "@/presentation/services/utils.service";
-import { useRouter } from "next/navigation";
+// import { UtilsService } from "@/presentation/services/utils.service";
+// import { useRouter } from "next/navigation";
+import { useAuth } from "@/presentation/components/context/auth-context";
 
 export default function DonationPage() {
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
-  const router = useRouter();
+  // const router = useRouter();
+
+  const { logout } = useAuth();
 
   const { toast } = useToast();
 
@@ -82,10 +85,10 @@ export default function DonationPage() {
     }
   }
 
-  const logout = () => {
-    UtilsService.removeToken();
-    router.replace("/auth");
-  };
+  // const logout = () => {
+  //   UtilsService.removeToken();
+  //   router.replace("/auth");
+  // };
 
   return (
     <div className="w-full min-h-screen">
